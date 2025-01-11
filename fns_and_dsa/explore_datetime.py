@@ -2,15 +2,21 @@ from datetime import datetime, timedelta
 
 def display_current_datetime():
     current_date = datetime.now()
-    print(current_date)
+    formatted_date = current_date.strftime("%Y-%m-%d %H:%M:%S")
+    print(formatted_date)
+
+
+
+def calculate_future_date(number_of_days):
+    current_date = datetime.now()
+    future_date = timedelta(days=number_of_days) + current_date
+    formatted_date = future_date.strftime("%Y-%m-%d")
+    print(formatted_date)
+
     
-    return current_date
+display_current_datetime()
 
 number_of_days = int(input("Enter number of days: "))
 
-def calculate_future_date(number_of_days):
-    future_date = timedelta(days=number_of_days) + display_current_datetime()
-
-display_current_datetime()
 calculate_future_date(number_of_days)
 
