@@ -13,17 +13,21 @@ class Library:
 
     def check_out_book(self, title):
         for book in self._books:
-            if book.title == title and not book._is_checked_out:
-                book._is_checked_out = True
-                print(f"{book.title} has been checked out")
-            else:
-                print(f"{book.title} is not currently available")
+            if book.title == title:
+                if not book._is_checked_out:
+                    book._is_checked_out = True
+                    print(f"{book.title} has been checked out")
+                else:
+                    print(f"{book.title} is not currently available")
 
     def return_book(self, title):
         for book in self._books:
-            if book.title == title and book._is_checked_out:
-                book._is_checked_out = False
-                print(f"{book.title} has been returned")
+            if book.title == title:
+                if book._is_checked_out:
+                    book._is_checked_out = False
+                    print(f"{book.title} has been returned")
+                else:
+                    print(f"{book.title} wasn't checked out")
                 
 
     def list_available_books(self):
